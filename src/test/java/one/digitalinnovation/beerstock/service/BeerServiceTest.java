@@ -120,5 +120,16 @@ public class BeerServiceTest {
     }
 
 
+    @Test
+    void whenListBeerIsCalledThenReturnAnEmptyListOfBeers() {
+        //when
+        when(beerRepository.findAll()).thenReturn(Collections.EMPTY_LIST);
+
+        //then
+        List<BeerDTO> foundListBeersDTO = beerService.listAll();
+
+        assertThat(foundListBeersDTO, is(empty()));
+    }
+
 
 }

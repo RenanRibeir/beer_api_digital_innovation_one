@@ -152,13 +152,13 @@ public class BeerServiceTest {
     //TDD
 
     @Test
-    void whenIncrementIsCalledThenIncrementBeerStock() {
+    void whenIncrementIsCalledThenIncrementBeerStock() throws BeerStockExceededException {
         //given
         BeerDTO expectedBeerDTO = BeerDTOBuilder.builder().build().toBeerDTO();
         Beer expectedBeer = beerMapper.toModel(expectedBeerDTO);
 
         //when
-       // when(beerRepository.findById(expectedBeerDTO.getId())).thenReturn(Optional.of(expectedBeer));
+       when(beerRepository.findById(expectedBeerDTO.getId())).thenReturn(Optional.of(expectedBeer));
         //when(beerRepository.save(expectedBeer)).thenReturn(expectedBeer);
 
         int quantityToIncrement = 10;
